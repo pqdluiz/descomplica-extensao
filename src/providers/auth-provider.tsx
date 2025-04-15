@@ -9,10 +9,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   const [userRole, setUserRole] = useState<UserRole>(null);
 
   const login = (email: string, password: string) => {
-    console.log(email, password);
     if (email === "example.barber@gmail.com" && password === "123456") {
       setIsAuthenticated(true);
-
       setUserRole("barber");
 
       return true;

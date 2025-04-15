@@ -4,7 +4,7 @@ import { useAuth } from "../hooks/auth.hook";
 
 export const Login: React.FC = () => {
   const navigate = useNavigate();
-  const { login, isAuthenticated } = useAuth();
+  const { login, isAuthenticated, userRole } = useAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,10 +12,14 @@ export const Login: React.FC = () => {
   const handleLogin = () => {
     login(email, password);
 
-    console.log(isAuthenticated);
-
     if (isAuthenticated) {
-      navigate("/home");
+      if (userRole === "client") {
+        navigate("/home");
+      }
+
+      if (userRole === "barber") {
+        navigate("/home-barber");
+      }
     } else {
       alert("Corrija os dados por favor");
     }

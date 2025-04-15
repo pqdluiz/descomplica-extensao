@@ -8,9 +8,25 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userRole, setUserRole] = useState<UserRole>(null);
 
-  const login = (role: UserRole) => {
-    setIsAuthenticated(true);
-    setUserRole(role);
+  const login = (email: string, password: string) => {
+    console.log(email, password);
+    if (email === "example.barber@gmail.com" && password === "123456") {
+      setIsAuthenticated(true);
+
+      setUserRole("barber");
+
+      return true;
+    }
+
+    if (email === "example.client@gmail.com" && password === "123456") {
+      setIsAuthenticated(true);
+      setUserRole("client");
+
+      return true;
+    }
+
+    setIsAuthenticated(false);
+    return false;
   };
 
   const logout = () => {

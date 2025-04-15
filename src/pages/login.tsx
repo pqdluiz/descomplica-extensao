@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/auth.hook";
 
 export const Login: React.FC = () => {
   const navigate = useNavigate();
+  const { login, isAuthenticated } = useAuth();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    navigate("/home");
+    login(email, password);
+
+    console.log(isAuthenticated);
+
+    if (isAuthenticated) {
+      navigate("/home");
+    } else {
+      alert("Corrija os dados por favor");
+    }
   };
 
   return (
@@ -20,6 +33,8 @@ export const Login: React.FC = () => {
           <input
             type="email"
             placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="border-1 py-2 px-4 w-96"
           />
         </div>
@@ -29,6 +44,8 @@ export const Login: React.FC = () => {
           <input
             type="password"
             placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className="w-96 sm:w-80 md:w-96 lg:w-96 border-1 py-2 px-4"
           />
         </div>

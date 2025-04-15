@@ -1,8 +1,8 @@
 export interface AuthContextType {
   isAuthenticated: boolean;
   userRole: UserRole;
-  login: (role: UserRole) => void;
+  login: (email: string, password: string) => void;
   logout: () => void;
 }
 
-export type UserRole = "cliente" | "barbeiro" | null;
+export type UserRole = "client" | "barber" | null;

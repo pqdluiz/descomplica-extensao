@@ -28,20 +28,9 @@ Bem-vindo ao **Descomplica Barber**, um sistema de agendamento online para barbe
 ## 🛠️ Tecnologias Utilizadas
 
 - **Frontend**: React com Tailwind CSS.
-- **Backend**: Node.js com Express.
-- **Banco de Dados**: PostgreSQL.
-- **Autenticação**: JWT para segurança.
 
 ## 📅 Futuras Melhorias
 
 🔹 Implementação de pagamentos online.  
 🔹 Integração com Google Agenda.  
 🔹 Sistema de avaliação e feedback.
-
-## 📞 Contato
-
-Caso tenha dúvidas ou sugestões, entre em contato pelo e-mail: **suporte@descomplicabarber.com**
-
----
-
-Feito com ❤️ pela equipe Descomplica Barber! ✂️
